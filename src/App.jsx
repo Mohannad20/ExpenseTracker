@@ -1,9 +1,14 @@
 import React from 'react'
-import Home from './comps/home'
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './components/Navbar'
+
 
 const App = () => {
   return (
-    <Home />
+    <BrowserRouter>
+      <Navbar />
+      
+    </BrowserRouter>
   )
 }
 
