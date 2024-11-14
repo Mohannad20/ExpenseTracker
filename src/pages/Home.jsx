@@ -8,7 +8,7 @@ const Home = () => {
             <p className="text-gray-600">
               This is the main content area. You can add your page content here.
             </p>
-    <button className='btn btn-neutral'>Start</button>
+    <button className='btn'>Start</button>
     </>
   )
 }

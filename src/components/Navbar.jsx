@@ -1,93 +1,140 @@
-import React from 'react'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { Link, Route, Routes } from 'react-router-dom'
-import AddTransaction from '../pages/addTransaction'
-import Home from '../pages/Home'
-import Transaction from '../pages/transaction'
-import UserMenu from './UserMenu'
-import Login from '../pages/login'
-import Signup from '../pages/signup'
+import React from "react";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Book, ChevronDown, Moon, SunDim } from "lucide-react";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarShortcut,
+  MenubarItem,
+} from "./ui/menubar";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { useTheme } from "./theme-provider";
+
+import profilePic from "../assets/onizuka.jpg";
 const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen)
-  }
+  const { setTheme } = useTheme();
 
   return (
-    <div className="flex h-screen bg-gray-100 ">
-      {/* Sidebar */}
-      <div
-        className={`fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
-        <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="text-xl font-semibold" onClick={toggleSidebar}>Sidebar</h2>
-          <button size="icon" onClick={toggleSidebar}>
-            <X className="h-6 w-6" />
-            <span className="sr-only">Close sidebar</span>
-          </button>
+    <nav
+      className={`bg-neutral-200 bg-opacity-30 text-primary rotating-border w-fit px-6 flex mt-2 mx-auto rounded`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 gap-10">
+          <div className="flex-shrink-0 ">
+            <Link to="/">
+              <span className="text-2xl font-bold text-primary cursor-pointer">
+                Expense Tracker
+              </span>
+            </Link>
+          </div>
+
+          <Menubar className="no-hover-bg">
+            <MenubarMenu>
+              <MenubarTrigger className="no-hover-bg">Home</MenubarTrigger>
+              <MenubarContent className="px-4 no-hover-bg">
+                <Link to="/">
+                  <MenubarItem className="flex no-hover-bg">
+                    Course list
+                    <MenubarShortcut>
+                      <Book />
+                    </MenubarShortcut>
+                  </MenubarItem>
+                </Link>
+                <Link>
+                  <MenubarItem className="no-hover-bg">Quiz</MenubarItem>
+                </Link>
+              </MenubarContent>
+            </MenubarMenu>
+            <Link to="/transaction">
+              <MenubarMenu>
+                <MenubarTrigger className="no-hover-bg">Transaction</MenubarTrigger>
+              </MenubarMenu>
+            </Link>
+            <Link to="/addTransaction">
+              <MenubarMenu>
+                <MenubarTrigger className="no-hover-bg">Add Transaction</MenubarTrigger>
+              </MenubarMenu>
+            </Link>
+          </Menubar>
+
+          <div className="flex items-center">
+            <div className="mx-3 relative">
+              <div className="flex items-center p-1 rounded no-hover-bg">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={profilePic}
+                    />
+                  </div>
+                </div>
+                <div className="cursor-pointer flex items-center no-hover-bg">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex justify-center items-center">
+                      <span className="hidden md:flex mx-2 text-sm font-medium text-primary">
+                        username
+                      </span>
+                      <ChevronDown
+                        className="ml-1 h-4 w-4 text-primary"
+                        aria-hidden="true"
+                      />
+                    </DropdownMenuTrigger>
+
+                    <DropdownMenuContent>
+                      <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>Profile</DropdownMenuItem>
+                      <DropdownMenuItem>Setting</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>Logout</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </div>
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <SunDim className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  Light
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  Dark
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  System
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+          </div>
         </div>
-        <nav className="p-4">
-          <ul className="space-y-2" onClick={toggleSidebar} >
-            <li>
-              <Link to='/' className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">Home</Link>
-            </li>
-            <li>
-              <Link to='/addTransaction' className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">Add Transaction</Link>
-            </li>
-            <li>
-              <Link to='/transaction' className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">Transaction</Link>
-            </li>
-            <li>
-              <Link to='/login' className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">Login</Link>
-            </li>
-            <li>
-              <Link to='/signup' className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">Signup</Link>
-            </li>
-          </ul>
-        </nav>
       </div>
+    </nav>
+  );
+};
 
-      {/* Main content */}
-      <div className="flex-1 flex flex-col w-full ">
-        <header className="bg-white shadow-sm">
-          <div className="min-w-screen mx-auto py-4 px-4 sm:px-6 lg:px-8 flex items-center">
-            <button size="icon" onClick={toggleSidebar} className="mr-4">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Open sidebar</span>
-            </button>
-            <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-            <div className="flex-1 flex justify-center">
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-fit px-4 py-2 border bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-            </div>
-            <div className='ml-auto flex items-center gap-3'>
-                <UserMenu />
-            </div>
-          </div>
-        </header>
-        <main className="flex-1 overflow-y-auto p-4">
-          <div className="max-w-7xl mx-auto">
-            {/* The main content will be rendered here based on the route */}
-            <Routes>
-                <Route path='/' element={<Home/>} />
-                <Route path='/addTransaction' element={<AddTransaction />} />
-                <Route path='/transaction' element={<Transaction/>} />
-                <Route path='/login' element={<Login/>} />
-                <Route path='/signup' element={<Signup/>} />
-            </Routes>
-          </div>
-        </main>
-      </div>
-    </div>
-  )
-}
-
-export default Navbar
+export default Navbar;
