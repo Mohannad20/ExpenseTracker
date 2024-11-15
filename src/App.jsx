@@ -9,6 +9,7 @@ import Login from "../src/pages/Login";
 import Signup from "../src/pages/Signup";
 import Profile from "../src/pages/Profile";
 import NotFound from "../src/pages/NotFound";
+import Setting from "./pages/setting/Setting";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path='/signup' element={<Signup/>} />
                 <Route path='/profile' element={<Profile/>} />
                 <Route path='/notFound' element={<NotFound/>} />
+                <Route path='/setting/*' element={<Setting/>} />
             </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -1,6 +1,14 @@
 import React from "react";
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Book, ChevronDown, Moon, SunDim } from "lucide-react";
+import {
+  Book,
+  ChevronDown,
+  Moon,
+  Settings,
+  SettingsIcon,
+  SunDim,
+  UserCircle2,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -27,7 +35,7 @@ const Navbar = () => {
   const { setTheme } = useTheme();
 
   return (
-    <div className="pt-2">
+    <div className="pt-3">
       <nav className="bg-neutral-200 bg-opacity-30 text-primary rotating-border w-fit px-6 flex  mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 gap-10">
@@ -99,8 +107,15 @@ const Navbar = () => {
                       <DropdownMenuContent>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Profile</DropdownMenuItem>
-                        <DropdownMenuItem>Setting</DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <UserCircle2 /> Profile
+                        </DropdownMenuItem>
+                        <Link to="/setting">
+                          <DropdownMenuItem>
+                            <SettingsIcon/>
+                            Setting
+                          </DropdownMenuItem>
+                        </Link>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>Logout</DropdownMenuItem>
                       </DropdownMenuContent>
