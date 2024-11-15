@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+  font-family: 'Clash Display';
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -81,7 +85,8 @@
 }
 
 .rotating-border {
-  border: 2px solid;
+  border: 3px solid;
+  border-radius:  6px;
   border-image: linear-gradient(var(--rotate), red, blue) 1;
   animation: spin 8s linear infinite;
 }
