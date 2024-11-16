@@ -13,7 +13,7 @@ import Setting from "./pages/setting/Setting";
 
 const App = () => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <BrowserRouter>
         <Navbar />
         <Routes>

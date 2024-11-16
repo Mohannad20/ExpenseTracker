@@ -52,7 +52,7 @@ const ProfileSetting = () => {
       <div className="flex">
         <div className="w-1/2 border-r-2">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Username</span>
+            <span className="text-sm mb-2">Username</span>
             <div>
               <input
                 type="text"
@@ -70,7 +70,7 @@ const ProfileSetting = () => {
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Email</span>
+            <span className="text-sm mb-2">Email</span>
             <div>
               <input
                 type="email"
@@ -88,7 +88,7 @@ const ProfileSetting = () => {
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Phone number</span>
+            <span className="text-sm mb-2">Phone number</span>
             <div>
               <input
                 type="text"
@@ -108,7 +108,7 @@ const ProfileSetting = () => {
         </div>
         <div className="w-1/2 ml-5">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Profile picture</span>
+            <span className="text-sm mb-2">Profile picture</span>
             <div className="flex flex-col gap-4">
               {/* Current Profile Picture */}
               <div className="relative w-32 h-32">
@@ -135,10 +135,10 @@ const ProfileSetting = () => {
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
-                  className="block w-full text-sm text-slate-500
+                  className="block w-full text-sm mb-2 text-slate-500
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
-                    file:text-sm file:font-semibold
+                    file:text-sm mb-2 file:font-semibold
                     file:bg-violet-50 file:text-violet-700
                     hover:file:bg-violet-100"
                 />
@@ -160,7 +160,7 @@ const ProfileSetting = () => {
       <div className="flex">
         <div className="w-1/2 border-r-2">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Current Password</span>
+            <span className="text-sm mb-2">Current Password</span>
             <div>
               <input
                 type="password"
@@ -178,7 +178,7 @@ const ProfileSetting = () => {
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">New Password</span>
+            <span className="text-sm mb-2">New Password</span>
             <div>
               <input
                 type="password"
@@ -196,7 +196,7 @@ const ProfileSetting = () => {
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Confirm New Password</span>
+            <span className="text-sm mb-2">Confirm New Password</span>
             <div>
               <input
                 type="password"
@@ -216,7 +216,7 @@ const ProfileSetting = () => {
         </div>
         <div className="w-1/2 ml-5">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Reset Password</span>
+            <span className="text-sm mb-2">Reset Password</span>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <Button
@@ -230,7 +230,7 @@ const ProfileSetting = () => {
               </div>
               {showCodeInput && (
                 <div className="flex flex-col gap-2">
-                  <span className="text-sm text-green-600">
+                  <span className="text-sm mb-2 text-green-600">
                     {isCodeSent
                       ? "Verification code sent! Please check your email/phone."
                       : ""}
@@ -263,7 +263,7 @@ const ProfileSetting = () => {
       <div className="flex">
         <div className="w-1/2 border-r-2">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm">Add links</span>
+            <span className="text-sm mb-2">Add links</span>
             <div className="flex">
               <div className="flex flex-row">
                 <input

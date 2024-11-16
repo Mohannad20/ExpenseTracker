@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <div className="pt-3">
-      <nav className="bg-neutral-200 bg-opacity-30 text-primary rotating-border w-fit px-6 flex  mx-auto">
+      <nav className="bg-accent bg-opacity-30 text-primary rotating-border w-fit px-6 flex  mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 gap-10">
             <div className="flex-shrink-0 ">
@@ -107,10 +107,12 @@ const Navbar = () => {
                       <DropdownMenuContent>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
+                        <Link to="/setting/profileSetting">
                         <DropdownMenuItem>
                           <UserCircle2 /> Profile
                         </DropdownMenuItem>
-                        <Link to="/setting">
+                        </Link>
+                        <Link to="/setting/profileSetting">
                           <DropdownMenuItem>
                             <SettingsIcon/>
                             Setting

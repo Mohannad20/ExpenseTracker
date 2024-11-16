@@ -87,6 +87,6 @@
 .rotating-border {
   border: 3px solid;
   border-radius:  6px;
-  border-image: linear-gradient(var(--rotate), red, blue) 1;
+  border-image: linear-gradient(var(--rotate), hsl(var(--foreground)), hsl(var(--border))) 1;
   animation: spin 8s linear infinite;
 }
