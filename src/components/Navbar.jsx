@@ -1,8 +1,10 @@
 import React from "react";
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
+  Bell,
   Book,
   ChevronDown,
+  DollarSign,
   Moon,
   Settings,
   SettingsIcon,
@@ -29,10 +31,18 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { useTheme } from "./theme-provider";
+import {
+  BadgeDollarSign,
+  Currency,
+  Eye,
+  HomeIcon,
+  PlusCircleIcon,
+  Receipt,
+} from "lucide-react";
 
 import profilePic from "../assets/onizuka.jpg";
 const Navbar = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="pt-3">
@@ -50,34 +60,76 @@ const Navbar = () => {
             <Menubar className="no-hover-bg">
               <Link to="/">
                 <MenubarMenu>
-                  <MenubarTrigger className="no-hover-bg">Home</MenubarTrigger>
-                  {/* <MenubarContent className="px-4 no-hover-bg">
-                  <MenubarItem className="flex no-hover-bg">
-                    Course list
+                  <MenubarTrigger className="no-hover-bg gap-2">
                     <MenubarShortcut>
-                      <Book />
+                      <HomeIcon className="w-5 h-5" />
                     </MenubarShortcut>
-                  </MenubarItem>
-              </MenubarContent> */}
-                </MenubarMenu>
-              </Link>
-              <Link to="/transaction">
-                <MenubarMenu>
-                  <MenubarTrigger className="no-hover-bg">
-                    Transaction
+                    Home
                   </MenubarTrigger>
                 </MenubarMenu>
               </Link>
-              <Link to="/addTransaction">
+              <MenubarMenu>
+                <MenubarTrigger className="no-hover-bg">
+                  <MenubarShortcut>
+                    <DollarSign className="w-5 h-5" />
+                  </MenubarShortcut>
+                  Transaction
+                </MenubarTrigger>
+                <MenubarContent>
+                  <Link to="/transaction">
+                    <MenubarItem className="flex no-hover-bg">
+                      Transactions
+                      <MenubarShortcut>
+                        <BadgeDollarSign className="w-5 h-5" />
+                      </MenubarShortcut>
+                    </MenubarItem>
+                  </Link>
+                  <Link to="/addTransaction">
+                    <MenubarItem className="flex no-hover-bg">
+                      Add Transactions
+                      <MenubarShortcut>
+                        <PlusCircleIcon className="w-5 h-5" />
+                      </MenubarShortcut>
+                    </MenubarItem>
+                  </Link>
+                </MenubarContent>
+              </MenubarMenu>
+              <Link to="/budget">
                 <MenubarMenu>
-                  <MenubarTrigger className="no-hover-bg">
-                    Add Transaction
+                  <MenubarTrigger className="no-hover-bg gap-2">
+                    <MenubarShortcut>
+                      <Currency className="w-5 h-5" />{" "}
+                    </MenubarShortcut>
+                    Budget
                   </MenubarTrigger>
                 </MenubarMenu>
               </Link>
+              <MenubarMenu>
+                <MenubarTrigger className="no-hover-bg gap-2">
+                  <MenubarShortcut>
+                    <Eye className="w-5 h-5" />{" "}
+                  </MenubarShortcut>
+                  Reports
+                </MenubarTrigger>
+              </MenubarMenu>
             </Menubar>
 
             <div className="flex items-center">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    {theme === "dark" ? (
+                      <Bell className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    ) : (
+                      <Bell className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    )}
+                    <span className="sr-only">Notification</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>Notification 1</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <div className="mx-3 relative">
                 <div className="flex items-center p-1 rounded no-hover-bg">
                   <div
@@ -108,13 +160,13 @@ const Navbar = () => {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <Link to="/setting/profileSetting">
-                        <DropdownMenuItem>
-                          <UserCircle2 /> Profile
-                        </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <UserCircle2 /> Profile
+                          </DropdownMenuItem>
                         </Link>
                         <Link to="/setting/profileSetting">
                           <DropdownMenuItem>
-                            <SettingsIcon/>
+                            <SettingsIcon />
                             Setting
                           </DropdownMenuItem>
                         </Link>

@@ -10,6 +10,7 @@ import Signup from "../src/pages/Signup";
 import Profile from "../src/pages/Profile";
 import NotFound from "../src/pages/NotFound";
 import Setting from "./pages/setting/Setting";
+import Budget from "./pages/Budget";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path='/profile' element={<Profile/>} />
                 <Route path='/notFound' element={<NotFound/>} />
                 <Route path='/setting/*' element={<Setting/>} />
+                <Route path='/budget' element={<Budget/>} />
             </Routes>
       </BrowserRouter>
     </ThemeProvider>
