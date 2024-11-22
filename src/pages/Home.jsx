@@ -79,7 +79,7 @@ const Home = () => {
               <LineChart width={580} height={300} data={data}>
                 <Line type="monotone" dataKey="income" stroke="#8884d4" />
                 <Line type="monotone" dataKey="spending" stroke="#82ca4d" />
-                <CartesianGrid stroke="#82aa9d" strokeDasharray={7} />
+                <CartesianGrid stroke="#82aa9d" strokeWidth={0.3} />
                 <XAxis dataKey="name" stroke="#82aa9d" />
                 <YAxis stroke="#82aa9d" />
                 <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
@@ -93,6 +93,7 @@ const Home = () => {
             <div className="flex flex-col justify-center items-center">
 
             <PieChart width={400} height={400}>
+              
               <Pie
                 data={pieData}
                 cx={200}
@@ -102,6 +103,7 @@ const Home = () => {
                   `${name}: ${(percent * 100).toFixed(0)}%`
                 }
                 outerRadius={80}
+                innerRadius={40}
                 fill="#8884d8"
                 dataKey="value"
               >
