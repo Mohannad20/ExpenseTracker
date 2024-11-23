@@ -23,7 +23,7 @@ const Budget = () => {
     
     setBudgets([...budgets, {
       ...newBudget,
-      spent: 0,
+      spent: 10,
       id: Date.now()
     }]);
     setNewBudget({ category: '', amount: '' });
@@ -61,7 +61,7 @@ const Budget = () => {
             </div>
             <Button 
               type='submit'
-              className='bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex items-center gap-2'
+              className='bg-blue-500 flex justify-center items-center text-white rounded hover:bg-blue-600 gap-2'
             >
               <PlusCircle className='w-5 h-5' />
               Add Budget

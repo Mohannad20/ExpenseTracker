@@ -67,7 +67,20 @@ const Home = () => {
           <p className="text-2xl">$500</p>
         </div>
       </div>
-
+      <div className="bg-accent rounded p-6 grid grid-cols-1 mx-6 mt-4">
+            <h2 className="text-xl font-semibold mb-4 text-center">Budget Progress</h2>
+            <div className="flex flex-col justify-center items-center">
+            <BarChart width={1500} height={300} data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+            <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
+              <Legend />
+              <Bar dataKey="spending" fill="#8884d8" />
+              <Bar dataKey="income" fill="#82ca9d" />
+            </BarChart>
+            </div>
+          </div>
       <div className="grid grid-cols-2 gap-8  p-6">
         {/* Data Visualization */}
         <div className="mt-8 grid grid-rows-2 gap-4">
@@ -102,8 +115,8 @@ const Home = () => {
                 label={({ name, percent }) =>
                   `${name}: ${(percent * 100).toFixed(0)}%`
                 }
-                outerRadius={80}
-                innerRadius={40}
+                outerRadius={150}
+                innerRadius={80}
                 fill="#8884d8"
                 dataKey="value"
               >
@@ -118,20 +131,7 @@ const Home = () => {
             </PieChart>
           </div>
           </div>
-          <div className="bg-accent rounded p-4 ">
-            <h2 className="text-xl font-semibold mb-4 text-center">Budget Progress</h2>
-            <div className="flex flex-col justify-center items-center">
-            <BarChart width={530} height={250} data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-            <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
-              <Legend />
-              <Bar dataKey="spending" fill="#8884d8" />
-              <Bar dataKey="income" fill="#82ca9d" />
-            </BarChart>
-            </div>
-          </div>
+          
         </div>
 
         <div className="mt-8 flex flex-col border rounded-lg px-8">
@@ -140,36 +140,62 @@ const Home = () => {
             <h2 className="text-2xl font-bold mb-4">Recent Transactions</h2>
             <ul>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Groceries</span>
-                <span>- $50.00</span>
+                <span className="w-1/3 text-left">Groceries</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $50.00</span>
               </li>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Rent</span>
-                <span>- $1,200.00</span>
+                <span className="w-1/3 text-left">Rent</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $1,200.00</span>
               </li>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Netflix Subscription</span>
-                <span>- $15.00</span>
+                <span className="w-1/3 text-left">Netflix Subscription</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $15.00</span>
               </li>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Clothes</span>
-                <span>- $540.00</span>
+                <span className="w-1/3 text-left">Clothes</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $540.00</span>
               </li>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Electricity</span>
-                <span>- $200.00</span>
+                <span className="w-1/3">Electricity</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $200.00</span>
               </li>
               <li className="flex text-destructive stroke-2 stroke-slate-50 justify-between p-4 border-b">
-                <span>Club Subscription</span>
-                <span>- $150.00</span>
+                <span className="w-1/3">Club Subscription</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $150.00</span>
               </li>
               <li className="flex text-chart-2 justify-between p-4 border-b">
-                <span>Salary</span>
-                <span>+ $15000.00</span>
+                <span className="w-1/3">Salary</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">+ $15000.00</span>
               </li>
               <li className="flex text-chart-2 justify-between p-4 border-b">
-                <span>Freelance</span>
-                <span>+ $1500.00</span>
+                <span className="w-1/3">Freelance</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">+ $1500.00</span>
+              </li>
+            </ul>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Upcoming/Recurring Expenses</h2>
+            <ul>
+              <li className="flex text-chart-3 justify-between p-4 border-b">
+                <span className="w-1/3">Rent</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+                <span className="w-1/3 text-right">- $2000.00</span>
+              </li>
+              <li className="flex text-chart-3 justify-between p-4 border-b">
+              <span className="w-1/3">Fitness club</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+              <span className="w-1/3 text-right">- $500.00</span>
+              </li>
+              <li className="flex text-chart-3 justify-between p-4 border-b">
+              <span className="w-1/3">Netflix Subscription</span>
+                <span className="w-1/3 text-center">10/07/2024</span>
+              <span className="w-1/3 text-right">- $20.00</span>
               </li>
             </ul>
           </div>

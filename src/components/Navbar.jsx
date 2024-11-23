@@ -104,6 +104,7 @@ const Navbar = () => {
                   </MenubarTrigger>
                 </MenubarMenu>
               </Link>
+              <Link to="/reports">
               <MenubarMenu>
                 <MenubarTrigger className="no-hover-bg gap-2">
                   <MenubarShortcut>
@@ -112,6 +113,7 @@ const Navbar = () => {
                   Reports
                 </MenubarTrigger>
               </MenubarMenu>
+              </Link>
             </Menubar>
 
             <div className="flex items-center">
