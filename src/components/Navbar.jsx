@@ -104,7 +104,7 @@ const Navbar = () => {
                   </MenubarTrigger>
                 </MenubarMenu>
               </Link>
-              <Link to="/reports">
+              <Link to="/reports/historicalAnalysis">
               <MenubarMenu>
                 <MenubarTrigger className="no-hover-bg gap-2">
                   <MenubarShortcut>

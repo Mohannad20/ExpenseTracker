@@ -11,7 +11,7 @@ import Profile from "../src/pages/Profile";
 import NotFound from "../src/pages/NotFound";
 import Setting from "./pages/setting/Setting";
 import Budget from "./pages/Budget";
-import Reports from "./pages/Reports";
+import Reports from "./pages/reports/Reports";
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
                 <Route path='/notFound' element={<NotFound/>} />
                 <Route path='/setting/*' element={<Setting/>} />
                 <Route path='/budget' element={<Budget/>} />
-                <Route path='/reports' element={<Reports/>} />
+                <Route path='/reports/*' element={<Reports/>} />
             </Routes>
       </BrowserRouter>
     </ThemeProvider>

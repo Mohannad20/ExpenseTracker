@@ -1,17 +1,44 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../components/ui/button";
-import { Link } from "react-router-dom";
-// import { Signup } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
 const Signup = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
-    console.log("successfully", data);
+
+    try {
+      
+      if (data.password !== data.cpassword) {
+        setError('mismatchPassword', {
+          type: 'manual',
+          message: 'passwords do not match'
+        });
+        return;
+      }
+      
+      const usersCrednetial = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      )
+      console.log(usersCrednetial);
+      console.log("successfully", data);
+      navigate('/login');
+      } catch (error) {
+        setError('root', {
+          type : 'manual',
+          message : error.message
+        })
+      }
   };
   return (
     <div className="flex justify-center mt-16 min-h-screen">
@@ -77,14 +104,17 @@ const Signup = () => {
               Confirm Password:
             </label>
             <input
-              type="cpassword"
+              type="password"
               name="cpassword"
               placeholder="cpassword"
               className="px-2 py-1 w-96 border border-white bg-background rounded"
-              {...register("cpassword", { required: "cpassword is required" })}
+              {...register("cpassword", { required: "Confirm the password" })}
             />
-            {errors.password && (
-              <div className="text-red-500">{errors.password.message}</div>
+            {errors.cpassword && (
+              <div className="text-red-500">{errors.cpassword.message}</div>
+            )}
+            {errors.mismatchPassword && (
+              <div className="text-red-500">{errors.mismatchPassword.message}</div>
             )}
           </div>
           <div className="flex flex-row">
