@@ -69,7 +69,7 @@ const ComparativeInsights = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
                 <Legend />
                 <Bar dataKey="2023" fill="#8884d8" />
                 <Bar dataKey="2024" fill="#82ca9d" />

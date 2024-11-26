@@ -64,7 +64,7 @@ const AdvancedReporting = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip />
+              <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
               <Legend />
               <Line type="monotone" dataKey="income" stroke="#8884d8" />
               <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
@@ -79,7 +79,7 @@ const AdvancedReporting = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis />
-              <Tooltip />
+              <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
               <Legend />
               <Bar dataKey="profit" fill="#8884d8" />
             </BarChart>
