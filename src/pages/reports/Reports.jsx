@@ -45,7 +45,7 @@ const Reports = () => {
 
       <div className="flex justify-center mt-6">
         {/* Sidebar */}
-        <div className="w-1/4 mr-20 border px-5 py-3 pb-20 border-1 rounded-sm">
+        <div className="w-1/4 mr-20 border px-5 py-3 pb-20 border-1 mb-4 rounded-sm">
           <h1 className="text-lg font-bold text-center my-3 border-b pb-4">
             General Reports
           </h1>
@@ -68,7 +68,7 @@ const Reports = () => {
         </div>
 
         {/* Main Content */}
-        <div className="w-11/12 px-6 border py-3 border-1 rounded-sm">
+        <div className="w-11/12 px-6 border py-3 border-1 rounded-sm mb-4">
           <h1 className="text-lg font-bold text-center my-3 border-b pb-4">
             {/* {getCurrentLabel()} */}ss
           </h1>

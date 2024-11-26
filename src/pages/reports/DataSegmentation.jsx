@@ -29,9 +29,8 @@ const DataSegmentation = () => {
 
   return (
     <div className="p-6">
-      <section className="mb-8">
         <h2 className="text-2xl font-bold mb-6">Data Segmentation</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Account Overview */}
           <div className="p-6 border rounded-lg bg-accent shadow-sm">
             <h3 className="text-xl font-semibold mb-4 text-center">Account Overview</h3>
@@ -114,7 +113,7 @@ const DataSegmentation = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
     </div>
   );
 };

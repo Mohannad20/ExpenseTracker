@@ -18,10 +18,9 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const ConsolidatedSummarie = () => {
   return (
-    <div>
+    <div className="p-6">
         {/* Consolidated Summaries */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Consolidated Summaries</h2>
+        <h2 className="text-2xl font-bold mb-6">Consolidated Summaries</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 border rounded-lg bg-accent">
             <h3 className="text-xl font-semibold mb-2 text-center">Category-Based Summaries</h3>
@@ -65,7 +64,6 @@ const ConsolidatedSummarie = () => {
             </div>
           </div>
         </div>
-      </section>
     </div>
   )
 }

@@ -6,6 +6,8 @@ import {
 import { 
   Calendar, Download, Filter, Settings 
 } from 'react-feather';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
+import { Button } from '../../components/ui/button';
 
 const AdvancedReporting = () => {
   const [dateRange, setDateRange] = useState('monthly');
@@ -19,24 +21,26 @@ const AdvancedReporting = () => {
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-6">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Advanced Reporting</h1>
+        <h1 className="text-2xl font-bold ">Advanced Reporting</h1>
         <div className="flex gap-4">
-          <select 
-            className="px-4 py-2 border rounded-lg"
-            value={dateRange}
-            onChange={(e) => setDateRange(e.target.value)}
-          >
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-            <option value="yearly">Yearly</option>
-          </select>
-          <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg">
+         
+          <Select onChange={(e) => setDateRange(e.target.value)} >
+            <SelectTrigger className='w-[280px] py-5' >
+              <SelectValue className='text-lg' placeholder='select a time interval'/>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value='weekly'>Weekly</SelectItem>
+              <SelectItem value='monthly'>Monthly</SelectItem>
+              <SelectItem value='yearly'>Yearly</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button className=" bg-primary text-background " size='lg'>
             <Download size={18} />
             Export Report
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -44,7 +48,7 @@ const AdvancedReporting = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         {['Total Revenue', 'Total Expenses', 'Net Profit', 'Growth Rate'].map((metric) => (
           <div key={metric} className="p-4 bg-accent rounded-lg shadow-sm">
-            <h3 className="text-sm text-gray-600">{metric}</h3>
+            <h3 className="text-sm text-primary">{metric}</h3>
             <p className="text-2xl font-bold">$24,500</p>
             <span className="text-sm text-green-500">+12.5% vs last period</span>
           </div>
@@ -88,10 +92,10 @@ const AdvancedReporting = () => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold">Detailed Transactions</h2>
           <div className="flex gap-2">
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
+            <button className="p-2 hover:bg-accent-content rounded-lg">
               <Filter size={18} />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
+            <button className="p-2 hover:bg-accent-content rounded-lg">
               <Settings size={18} />
             </button>
           </div>
@@ -109,7 +113,7 @@ const AdvancedReporting = () => {
             </thead>
             <tbody>
               {[1, 2, 3, 4, 5].map((row) => (
-                <tr key={row} className="border-b hover:bg-gray-50">
+                <tr key={row} className="border-b hover:bg-accent-content">
                   <td className="p-4">2024-03-{row}</td>
                   <td className="p-4">Transaction #{row}</td>
                   <td className="p-4">Category {row}</td>
