@@ -21,18 +21,18 @@ const Transaction = () => {
       
       {/* Search and Filter */}
       <div className='flex flex-wrap gap-4 mb-6 p-6'>
-        <div className='flex items-center bg-white rounded-lg px-3 py-2 shadow'>
+        <div className='flex items-center bg-white rounded-lg px-3 py-2 shadow w-full sm:w-auto'>
           <Search className='text-gray-400 w-4 h-4' />
           <input
             type='text'
             placeholder='Search transactions...'
-            className='ml-2 outline-none bg-white text-black'
+            className='ml-2 outline-none bg-white text-black w-full sm:w-auto'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <select
-          className='rounded-lg px-3 py-2 pr-2 bg-white text-black shadow'
+          className='rounded-lg px-3 py-2 pr-2 bg-white text-black shadow w-full sm:w-auto'
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
         >
