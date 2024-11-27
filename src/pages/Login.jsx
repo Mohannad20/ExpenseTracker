@@ -13,9 +13,15 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
 } from "firebase/auth";
+
 import { auth } from "../firebaseConfig";
+import { useDispatch } from "react-redux";
+import { loginWithEmailAndPassword, loginWithGithub, loginWithGoogle } from "../redux/AuthReducer";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -27,83 +33,61 @@ const Login = () => {
     {defaultValues: { rememberMe: false }}
   );
 
-  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     clearErrors();
     try {
-      await setPersistence(auth, data.rememberMe ? browserLocalPersistence : browserSessionPersistence);
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-      console.log("successfully login", userCredential);
+      await dispatch(loginWithEmailAndPassword({
+        email: data.email,
+        password: data.password,
+        rememberMe: data.rememberMe
+      })).unwrap(); // Use unwrap() to handle rejection properly
+      
+      console.log("login successful");
       navigate("/");
     } catch (error) {
-      console.error("error during login:", error.code);
+      console.error("error during login:", error);
       
-      // Handle specific Firebase auth errors
-      switch (error.code) {
+      switch (error) {
         case 'auth/user-not-found':
-          setError("root", {
-            type: "manual",
-            message: "No account found with this email",
-          });
+          setError("root", { message: "No account found with this email" });
           break;
         case 'auth/wrong-password':
-          setError("root", {
-            type: "manual",
-            message: "Incorrect password",
-          });
+          setError("root", { message: "Incorrect password" });
           break;
         case 'auth/invalid-email':
-          setError("email", {
-            type: "manual",
-            message: "Invalid email format",
-          });
+          setError("email", { message: "Invalid email format" });
           break;
         case 'auth/too-many-requests':
-          setError("root", {
-            type: "manual",
-            message: "Too many attempts. Please try again later",
-          });
+          setError("root", { message: "Too many attempts. Please try again later" });
           break;
         default:
-          setError("root", {
-            type: "manual",
-            message: "Login failed. Please try again",
-          });
+          setError("root", { message: "Login failed. Please try again" });
       }
     }
   };
 
   const signInWithGithub = async () => {
+    clearErrors();
     try {
-      const provider = new GithubAuthProvider();
-      const userCredential = await signInWithPopup(auth, provider);
-      console.log("successfully login with github", userCredential);
+      await dispatch(loginWithGithub()).unwrap();
+      console.log("login with github successfully");
       navigate("/");
     } catch (error) {
       console.error("GitHub auth error:", error);
-      setError("root", {
-        type: "manual",
-        message: "error during sign in with google",
-      });
+      setError("root", { message: "Error during sign in with Github" });
     }
   };
 
   const signInWithGoogle = async () => {
+    clearErrors();
     try {
-      const provider = new GoogleAuthProvider();
-      const userCrednetial = await signInWithPopup(auth, provider);
-      console.log("successfully login with google", userCrednetial);
+      await dispatch(loginWithGoogle()).unwrap();
+      console.log("login with google successfully");
       navigate("/");
     } catch (error) {
-      setError("root", {
-        type: "manual",
-        message: "error during sign in with github",
-      });
+      console.error("Google auth error:", error);
+      setError("root", { message: "Error during sign in with Google" });
     }
   };
 
