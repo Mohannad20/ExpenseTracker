@@ -2,8 +2,10 @@ import React from "react";
 import { HomeIcon, ArrowLeft } from "lucide-react";
 import errorPage from "../assets/404.jpg";
 import { Button } from "../components/ui/button";
+import { Link, useNavigate } from "react-router-dom";
 
 const NotFound = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen  flex items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center space-y-6 animate-fadeIn">
@@ -28,19 +30,22 @@ const NotFound = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
-            onClick={() => window.history.back()}
+            // onClick={() => window.history.back()}
+            onClick = {() => navigate(-1)}
             className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300"
           >
             <ArrowLeft size={20} />
             Go Back
           </Button>
+          <Link to="/">
           <Button
-            onClick={() => (window.location.href = "/")}
+            // onClick={() => (window.location.href = "/")}
             className="flex items-center gap-2 px-6 py-3 bg-white text-gray-800 rounded-lg border-2 border-gray-800 hover:bg-gray-50 transition-colors duration-300"
-          >
+            >
             <HomeIcon size={20} />
             Home Page
           </Button>
+            </Link>
         </div>
       </div>
     </div>

@@ -69,21 +69,21 @@ const Navbar = () => {
                 </MenubarMenu>
               </Link>
               <MenubarMenu>
+                  <Link to="/transaction">
                 <MenubarTrigger className="no-hover-bg">
                   <MenubarShortcut>
                     <DollarSign className="w-5 h-5" />
                   </MenubarShortcut>
                   Transaction
                 </MenubarTrigger>
-                <MenubarContent>
-                  <Link to="/transaction">
+                  </Link>
+                {/* <MenubarContent>
                     <MenubarItem className="flex no-hover-bg">
                       Transactions
                       <MenubarShortcut>
                         <BadgeDollarSign className="w-5 h-5" />
                       </MenubarShortcut>
                     </MenubarItem>
-                  </Link>
                   <Link to="/addTransaction">
                     <MenubarItem className="flex no-hover-bg">
                       Add Transactions
@@ -92,7 +92,7 @@ const Navbar = () => {
                       </MenubarShortcut>
                     </MenubarItem>
                   </Link>
-                </MenubarContent>
+                </MenubarContent> */}
               </MenubarMenu>
               <Link to="/budget">
                 <MenubarMenu>

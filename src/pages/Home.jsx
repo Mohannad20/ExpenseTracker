@@ -117,14 +117,15 @@ const Home = () => {
                     labelLine={false}
                     label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                     outerRadius="80%"
-                    innerRadius="40%"
+                    innerRadius="50%"
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {pieData.map((entry, index) => (
+                    {pieData.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
+                  <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{ borderRadius: '8px' }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
