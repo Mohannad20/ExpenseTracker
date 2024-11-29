@@ -43,7 +43,10 @@ const Signup = () => {
   return (
     <div className="flex justify-center mt-16 min-h-screen">
       <div className="flex flex-col justify-center  h-fit rotating-border py-6 px-10 bg-opacity-5 bg-neutral-200">
-        <h2 className="text-center mb-4 text-xl">Signup</h2>
+        <h2 className="text-center mb-4 text-xl
+        motion-scale-in-[0.5] motion-translate-x-in-[-120%] motion-translate-y-in-[-60%] motion-opacity-in-[33%] motion-rotate-in-[-1080deg] motion-blur-in-[10px] motion-delay-[0.38s]/scale motion-duration-[0.38s]/opacity motion-duration-[1.20s]/rotate motion-duration-[0.15s]/blur motion-delay-[0.60s]/blur motion-ease-spring-bouncier  
+        
+        ">Signup</h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-4"

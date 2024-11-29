@@ -107,8 +107,12 @@ const Login = () => {
   }
   return (
     <div className="flex justify-center mt-16 min-h-screen">
-      <div className="flex flex-col justify-center  h-fit rotating-border py-6 px-10 bg-opacity-5 bg-neutral-200">
-        <h2 className="text-center mb-4 text-xl">Login</h2>
+      <div className="flex flex-col justify-center  h-fit rotating-border py-6 px-10 bg-opacity-5 bg-neutral-200
+      // motion-scale-in-[0.5] motion-translate-x-in-[12%] motion-translate-y-in-[82%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[0.35s] motion-duration-[0.53s]/scale motion-duration-[0.53s]/translate motion-duration-[0.63s]/rotate
+">
+        <h2 className="text-center mb-4 text-xl 
+        motion-scale-in-[0.5] motion-translate-x-in-[-120%] motion-translate-y-in-[-60%] motion-opacity-in-[33%] motion-rotate-in-[-1080deg] motion-blur-in-[10px] motion-delay-[0.38s]/scale motion-duration-[0.38s]/opacity motion-duration-[1.20s]/rotate motion-duration-[0.15s]/blur motion-delay-[0.60s]/blur motion-ease-spring-bouncier  
+        ">Login</h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-4"
@@ -156,7 +160,8 @@ const Login = () => {
               //   clearErrors('password');
               //   clearErrors('root');
               // }}
-              className="px-2 py-1 w-96 border border-white bg-background rounded"
+              className="px-2 py-1 w-96 border border-white bg-background rounded
+              "
               {...register("password", { required: "password is required" })}
             />
             {errors.password && (
@@ -184,12 +189,12 @@ const Login = () => {
             
           </div>
           <div className="flex flex-row">
-            <Button className="">
+            <Button className="motion-preset-bounce ">
               <LogIn />
               <span>Login</span>
             </Button>
             <Link to="/signup">
-              <Button variant="link" className="text-center">
+              <Button variant="link" className="text-center motion-preset-bounce ">
                 Signup
               </Button>
             </Link>

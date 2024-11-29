@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
+import Login from './Login';
+import { useSelector } from 'react-redux';
 
 const Budget = () => {
   const [budgets, setBudgets] = useState([]);
@@ -29,7 +31,11 @@ const Budget = () => {
     setNewBudget({ category: '', amount: '' });
   };
 
+  const isLogged = useSelector((state) => state.auth.isLogged);
+
+
   return (
+    isLogged ? (
     <div className='min-h-screen p-6'>
       <div className='max-w-4xl mx-auto'>
         <div className='flex items-center justify-center gap-2 mb-8'>
@@ -106,6 +112,9 @@ const Budget = () => {
         </div>
       </div>
     </div>
+    ) : (
+      <Login />
+    )
   );
 };
 

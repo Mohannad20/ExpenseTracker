@@ -24,6 +24,8 @@ import VisualStorytelling from './VisualStorytelling';
 import MultiDimensionalBreakdown from './MultiDimensionalBreakdown';
 import GoalsCustomInsights from './GoalsCustomInsights';
 import AuditReview from './AuditReview';
+import { useSelector } from 'react-redux';
+import Login from '../Login';
 
 const navItems = [
   { label: "Historical Analysis", path: "historicalAnalysis", icon: <History /> },
@@ -39,7 +41,10 @@ const navItems = [
 ];
 
 const Reports = () => {
+  const isLogged = useSelector((state) => state.auth.isLogged);
+
   return (
+    isLogged ? (
     <div className="container mx-auto min-h-screen">
       <h1 className="text-3xl font-bold my-8 text-center">Reports</h1>
 
@@ -90,6 +95,9 @@ const Reports = () => {
         </div>
       </div>
     </div>
+    ) : (
+      <Login/>
+    )
   );
 };
 
