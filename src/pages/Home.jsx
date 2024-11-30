@@ -44,6 +44,7 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Home = () => {
   const isLogged = useSelector((state) => state.auth.isLogged);
+  const user = useSelector((state) => state.auth.user);
   return (
     isLogged ? (
       <div className="min-h-screen p-6">
@@ -51,7 +52,7 @@ const Home = () => {
     
 
       <div className="min-h-screen p-6">
-      <h1 className="text-2xl font-bold text-center my-6">Welcome user</h1>
+      <h1 className="text-2xl font-bold text-center my-6">Welcome {user.displayName}</h1>
       
       {/* Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-6 p-6">

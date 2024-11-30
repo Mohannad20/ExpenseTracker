@@ -45,7 +45,9 @@ const Budget = () => {
 
         {/* Add Budget Form */}
         <form onSubmit={addBudget} className='mb-8 bg-background p-4 rounded-lg shadow'>
-          <div className='flex gap-4'>
+          {/* <div className='flex gap-4'> */}
+          <div className='flex flex-col lg:flex-row gap-4'>
+
             <div className='flex-1'>
               <Input
                 type='text'
@@ -60,7 +62,7 @@ const Budget = () => {
               <Input
                 type='number'
                 placeholder='Amount'
-                className='w-32 p-2 border rounded'
+                className='w-full p-2 border rounded'
                 value={newBudget.amount}
                 onChange={(e) => setNewBudget({...newBudget, amount: e.target.value})}
               />
@@ -92,7 +94,9 @@ const Budget = () => {
               <div className='w-full bg-gray-200 rounded-full h-2'>
                 <div 
                   className='bg-blue-500 h-2 rounded-full'
-                  style={{ width: `${(budget.spent / budget.amount) * 100}%` }}
+                  // style={{ width: `${(budget.spent / budget.amount) * 100}%` }}
+                  style={{ width: `${Math.min((budget.spent / budget.amount) * 100, 100)}%` }}
+
                 ></div>
               </div>
               {budget.spent > budget.amount && (
