@@ -42,7 +42,7 @@ const Signup = () => {
   };
   return (
     <div className="flex justify-center mt-16 min-h-screen">
-      <div className="flex flex-col justify-center  h-fit rotating-border py-6 px-10 bg-opacity-5 bg-neutral-200">
+      <div className="flex flex-col justify-center  h-fit rotating-border py-6 px-4 sm:px-6 md:px-10 sm:mx-2 md:mx-10 bg-opacity-5 bg-neutral-200">
         <h2 className="text-center mb-4 text-xl
         motion-scale-in-[0.5] motion-translate-x-in-[-120%] motion-translate-y-in-[-60%] motion-opacity-in-[33%] motion-rotate-in-[-1080deg] motion-blur-in-[10px] motion-delay-[0.38s]/scale motion-duration-[0.38s]/opacity motion-duration-[1.20s]/rotate motion-duration-[0.15s]/blur motion-delay-[0.60s]/blur motion-ease-spring-bouncier  
         
@@ -59,7 +59,7 @@ const Signup = () => {
               type="text"
               name="email"
               placeholder="name@email.me"
-              className="px-2 py-1 w-96 border border-white bg-background rounded"
+              className="px-2 py-1 w-full sm:w-80 md:w-96 border border-white bg-background rounded"
               {...register("email", {
                 required: "email is required",
                 pattern: {
@@ -80,7 +80,7 @@ const Signup = () => {
               type="username"
               name="username"
               placeholder="username"
-              className="px-2 py-1 w-96 border border-white bg-background rounded"
+              className="px-2 py-1 w-full sm:w-80 md:w-96 border border-white bg-background rounded"
               {...register("username", { required: "username is required" })}
             />
             {errors.username && (
@@ -95,7 +95,7 @@ const Signup = () => {
               type="password"
               name="password"
               placeholder="password"
-              className="px-2 py-1 w-96 border border-white bg-background rounded"
+              className="px-2 py-1 w-full sm:w-80 md:w-96 border border-white bg-background rounded"
               {...register("password", { required: "password is required" })}
             />
             {errors.password && (
@@ -110,7 +110,7 @@ const Signup = () => {
               type="password"
               name="cpassword"
               placeholder="cpassword"
-              className="px-2 py-1 w-96 border border-white bg-background rounded"
+              className="px-2 py-1 w-full sm:w-80 md:w-96 border border-white bg-background rounded"
               {...register("cpassword", { required: "Confirm the password" })}
             />
             {errors.cpassword && (

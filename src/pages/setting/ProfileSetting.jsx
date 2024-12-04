@@ -49,8 +49,8 @@ const ProfileSetting = () => {
   return (
     <div className="h-min-screen">
       <h1 className="text-base font-bold my-5">Edit Profile</h1>
-      <div className="flex">
-        <div className="w-1/2 border-r-2">
+      <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2">
+        <div className=" lg:border-r-2">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Username</span>
             <div>
@@ -106,7 +106,7 @@ const ProfileSetting = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 ml-5">
+        <div className=" ml-5">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Profile picture</span>
             <div className="flex flex-col gap-4">
@@ -157,8 +157,8 @@ const ProfileSetting = () => {
         </div>
       </div>
       <h1 className="text-base font-bold my-5">Change Password</h1>
-      <div className="flex">
-        <div className="w-1/2 border-r-2">
+      <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2">
+        <div className=" lg:border-r-2">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Current Password</span>
             <div>
@@ -214,7 +214,7 @@ const ProfileSetting = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 ml-5">
+        <div className=" ml-5">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Reset Password</span>
             <div className="flex flex-col gap-4">
@@ -261,7 +261,7 @@ const ProfileSetting = () => {
       <h1 className="text-base font-bold my-5">Manage Linked Accounts</h1>
 
       <div className="flex">
-        <div className="w-1/2 border-r-2">
+        <div className="w-1/2">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Add links</span>
             <div className="flex">

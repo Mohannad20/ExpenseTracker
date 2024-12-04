@@ -23,9 +23,9 @@ const AdvancedReporting = () => {
   return (
     <div className="p-6">
       {/* Header Section */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold ">Advanced Reporting</h1>
-        <div className="flex gap-4">
+      <div className="flex justify-between items-center mb-8 max-sm:flex-col">
+        <h1 className="text-2xl font-bold mb-4 ">Advanced Reporting</h1>
+        <div className="flex gap-4 max-sm:flex-col">
          
           <Select onChange={(e) => setDateRange(e.target.value)} >
             <SelectTrigger className='w-[280px] py-5' >

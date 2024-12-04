@@ -1,18 +1,17 @@
 import React from 'react'
-import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, Tooltip, XAxis, YAxis } from 'recharts'
-
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, Tooltip, XAxis, YAxis, ResponsiveContainer } from 'recharts'
 
 const categoryData = [
     { name: 'Food', value: 400 },
     { name: 'Rent', value: 300 },
     { name: 'Utilities', value: 300 },
     { name: 'Entertainment', value: 200 },
-  ];
+];
 
-  const incomeExpenseData = [
+const incomeExpenseData = [
     { name: 'Income', value: 5000 },
     { name: 'Expenses', value: 3000 },
-  ];
+];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -48,19 +47,19 @@ const ConsolidatedSummarie = () => {
           <div className="p-4 border rounded-lg bg-accent">
             <h3 className="text-xl font-semibold mb-2 text-center">Income vs. Expense Comparison</h3>
             <div className='flex justify-center mt-4'>
-              <BarChart
-                width={600}
-                height={300}
-                data={incomeExpenseData}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
-                <Legend />
-                <Bar dataKey="value" fill="#8884d8" />
-              </BarChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart
+                  data={incomeExpenseData}
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
+                  <Legend />
+                  <Bar dataKey="value" fill="#8884d8" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line } from 'recharts';
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, ResponsiveContainer } from 'recharts';
 
 const DataSegmentation = () => {
   // Sample data - replace with your actual data
@@ -60,19 +60,21 @@ const DataSegmentation = () => {
           <div className="p-6 border rounded-lg bg-accent shadow-sm">
             <h3 className="text-xl font-semibold mb-4 text-center">Recurring Patterns</h3>
             <div className="flex justify-center">
-              <LineChart width={300} height={300} data={recurringData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
-                <Line 
-                  type="monotone" 
-                  dataKey="amount" 
-                  stroke="#8884d8" 
-                  strokeWidth={2}
-                  dot={{ r: 4 }}
-                />
-              </LineChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={recurringData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
+                  <Line 
+                    type="monotone" 
+                    dataKey="amount" 
+                    stroke="#8884d8" 
+                    strokeWidth={2}
+                    dot={{ r: 4 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
@@ -80,17 +82,19 @@ const DataSegmentation = () => {
           <div className="p-6 border rounded-lg bg-accent shadow-sm">
             <h3 className="text-xl font-semibold mb-4 text-center">Biggest Expenses</h3>
             <div className="flex justify-center">
-              <BarChart width={300} height={300} data={expensesData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
-                <Bar dataKey="amount" fill="#8884d8">
-                  {expensesData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Bar>
-              </BarChart>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={expensesData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip labelStyle={{ color: "#8884d8" }} contentStyle={{borderRadius: '8px'}}/>
+                  <Bar dataKey="amount" fill="#8884d8">
+                    {expensesData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>

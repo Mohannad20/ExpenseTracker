@@ -15,8 +15,8 @@ const PrivacyAndSecurity = () => {
   return (
     <div className="h-min-screen">
       <h1 className="text-base font-bold my-5">Edit Privacy and Security</h1>
-      <div className="flex">
-        <div className="w-1/2 border-r-2">
+      <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2">
+        <div className=" lg:border-r-2">
           {/* Authentication Settings */}
           <div className="flex flex-col ml-4 my-6">
             <span className="text-sm font-semibold mb-4">
@@ -54,9 +54,9 @@ const PrivacyAndSecurity = () => {
           </div>
         </div>
 
-        <div className="w-1/2">
+        <div className="">
           {/* Account Data Management */}
-          <div className="flex flex-col ml-8 my-6">
+          <div className="flex flex-col lg:ml-6 ml-6 my-6">
             <span className="text-sm font-semibold mb-4">
               Manage Account Data
             </span>

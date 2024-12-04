@@ -52,8 +52,8 @@ const AppPreferences = () => {
   return (
     <div className="h-min-screen">
       <h1 className="text-base font-bold my-5">Edit App Preferences</h1>
-      <div className="flex">
-        <div className="w-1/2 border-r-2">
+      <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+        <div className=" lg:border-r-2">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Currency Settings</span>
             <div>
@@ -115,7 +115,7 @@ const AppPreferences = () => {
             </Select>
           </div>
         </div>
-        <div className="w-1/2 ml-5">
+        <div className="">
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm mb-2">Notifications</span>
             <div className="flex flex-col gap-4">

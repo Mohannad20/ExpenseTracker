@@ -15,8 +15,8 @@ const BudgetAndExpenseSettings = () => {
   return (
     <div className="h-min-screen">
       <h1 className="text-base font-bold my-5">Edit Budget And Expense Settings</h1>
-      <div className="flex">
-        <div className="w-1/2 border-r-2">
+      <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-2">
+        <div className=" lg:border-r-2">
           {/* Default Categories Section */}
           <div className="flex flex-col ml-4 my-2">
             <span className="text-sm font-semibold mb-2">Default Categories</span>
@@ -50,7 +50,7 @@ const BudgetAndExpenseSettings = () => {
               <Button
                 variant="secondary"
                 size="sm"
-                className="focus:outline outline-2 outline-green-500"
+                className="focus:outline outline-2 outline-green-500 max-sm:mt-2"
               >
                 Add Category
               </Button>
@@ -82,11 +82,11 @@ const BudgetAndExpenseSettings = () => {
           </div>
 
         </div>
-        <div className='w-1/2'>
+        <div className=''>
 
           {/* Recurring Expenses Section */}
         
-          <div className="flex flex-col ml-8 my-6">
+          <div className="flex flex-col lg:ml-8 ml-6 my-6">
             <span className="text-sm font-semibold mb-2">Recurring Expenses</span>
             <div className="space-y-4">
               <div>
