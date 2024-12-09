@@ -5,19 +5,23 @@
 ## 🌟 Features
 
 ### 💼 Core Functionalities
+
 - **Transaction Management**: Easily add, edit, and delete transactions with detailed descriptions, categories, and amounts.
 - **Filtering & Searching**: Find transactions quickly using the search bar or category filter.
 - **Data Visualization**: Generate reports with insightful charts and metrics to track spending trends.
 
 ### 🎨 Design
+
 - **Responsive Design**: Fully optimized for a wide range of devices and screen sizes.
 - **Dark Mode**: Sleek and modern dark theme for enhanced visual appeal and user comfort.
 
 ### 🔒 Authentication
+
 - **Secure Login/Signup**: Traditional email/password-based login with "Remember Me" functionality.
 - **Third-party Authentication**: Quick sign-in options via Google and GitHub.
 
 ### 🛠️ Technology Highlights
+
 - **State Management**: Redux Toolkit for efficient and scalable global state management.
 - **Firebase**: Utilized for backend services like authentication and database storage.
 - **Icons & Animations**:
@@ -26,6 +30,7 @@
   - **Component Library**: Shadcn components for consistent and reusable UI elements.
 
 ### 🛠️ Tech Stack
+
 - **Frontend**: React with Tailwind CSS for a fast and modern UI.
 - **Backend**: Firebase for authentication and real-time database.
 - **Tools**:
@@ -35,6 +40,7 @@
   - **Shadcn** for prebuilt components.
  
 ### 📈 Usage
+
 1. **Login or Signup**: Start by creating an account or logging in with your credentials.
 2. **Manage Transactions**:
   - Add new transactions by specifying details like date, description, category, and amount.
@@ -43,25 +49,23 @@
 4. **Filter & Search**: Use the search bar or category dropdown to locate specific transactions.
 
 ### 🖌️ Design Principles
+
 - **User-Centric**: The interface is designed to be simple yet powerful, catering to both casual users and advanced financial planners.
 - **Aesthetic & Functional**: The dark theme and animations provide an engaging yet professional experience.
 
 ### 🚀 Get Started
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/your-repository-name.git
-Install dependencies:
-bash
-Copy code
-npm install
-Start the development server:
-bash
-Copy code
-npm start
-Configure Firebase settings in your .env file.
+
+1. Clone the repository:
+`git clone https://github.com/Mohannad20/ExpenseTracker.git`
+2. Install dependencies:
+`npm install`
+3. Start the development server:
+`npm start`
+4. Configure Firebase settings in your `.env` file.
 
 ### Project Structure
+
+```
 src/
 ├── App.jsx                   # Main application component
 ├── assets/                   # Static assets
@@ -115,18 +119,18 @@ src/
 │   └── TransactionReducer.jsx # Transaction reducer
 └── style/                    # Styles
     └── index.css             # Main stylesheet
-
+```
 
 ### 📷 Screenshots
-1. Login Page
+1. **Login Page**
    ![screencapture-localhost-5173-2024-12-09-19_25_47](https://github.com/user-attachments/assets/0d315b29-6534-4a60-a356-2f368851c9da)
-2. Transaction Management
+2. **Transaction Management**
   ![screencapture-localhost-5173-transaction-2024-12-09-21_19_08](https://github.com/user-attachments/assets/21030789-ab48-4cc7-80b9-415cfe33f919)
-3. Budget page
+3. **Budget page**
   ![screencapture-localhost-5173-budget-2024-12-09-21_19_56](https://github.com/user-attachments/assets/e60b1a71-543d-43c6-8545-93311bbe9ba1)
-4. Reports page
+4. **Reports page**
   ![screencapture-localhost-5173-reports-advancedReporting-2024-12-09-21_20_29](https://github.com/user-attachments/assets/7b0cea20-33eb-4447-9522-2893aafa9e95)
-5. Setting page
+5. **Setting page**
   ![screencapture-localhost-5173-setting-profileSetting-2024-12-09-21_21_40](https://github.com/user-attachments/assets/59323b45-fe46-40ff-9ddb-f6affda4f085)
 
 ### 🤝 Contributions
@@ -134,6 +138,3 @@ Contributions are welcome! Feel free to open issues or submit pull requests to i
 
 ### 👨‍💻 Developer
 Developed by Mohannad using modern tools and best practices. Special thanks to all the amazing libraries and tools that made this project possible.
-
-
-
