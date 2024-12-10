@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../../components/ui/button";
 import profilePic from "../../assets/onizuka.jpg";
 import { Link, Link2 } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeEmail, fetchUserProfile, updateUsername } from "../../redux/ProfileReducer";
+import { updateEmail } from "firebase/auth";
 const ProfileSetting = () => {
-  const [currentImage, setCurrentImage] = useState(profilePic); // Set default or fetch from API
+  const [currentImage, setCurrentImage] = useState(profilePic);
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [showCodeInput, setShowCodeInput] = useState(false);
@@ -46,6 +49,29 @@ const ProfileSetting = () => {
     setCurrentLinks();
   };
 
+  const dispatch = useDispatch()
+  const username = useSelector((state) => state.profile.username)
+  const email = useSelector((state) => state.profile.email)
+  console.log('username is :', username);
+  console.log('email is :', email);
+  const [newUsername, setNewUsername] = useState(username)
+  const [newEmail, setNewEmail] = useState(email)
+  
+  useEffect(()=> {
+    dispatch(fetchUserProfile())
+  }, [dispatch])
+  useEffect(() => {
+    setNewUsername(username);
+    setNewEmail(email);
+  }, [username, email])
+
+  const handleUpdateUsername = () => {
+    dispatch(updateUsername(newUsername))
+  }
+  const handleUpdateEmail = () => {
+    dispatch(changeEmail(newEmail))
+  }
+
   return (
     <div className="h-min-screen">
       <h1 className="text-base font-bold my-5">Edit Profile</h1>
@@ -57,13 +83,16 @@ const ProfileSetting = () => {
               <input
                 type="text"
                 name="username"
+                value={newUsername}
                 placeholder="username"
+                onChange={(e) => setNewUsername(e.target.value)}
                 className="w-fit px-2 mr-2 size-8 rounded rounded-md bg-accent bg-opacity-10 focus:outline outline-green-500"
               />
               <Button
                 variant="secondary"
                 size="sm"
                 className="focus:outline outline-2 outline-green-500"
+                onClick={handleUpdateUsername}
               >
                 Save
               </Button>
@@ -75,6 +104,8 @@ const ProfileSetting = () => {
               <input
                 type="email"
                 name="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
                 placeholder="name@email.me"
                 className="w-fit px-2 mr-2 size-8 rounded rounded-md bg-accent bg-opacity-10 focus:outline outline-green-500"
               />
@@ -82,6 +113,7 @@ const ProfileSetting = () => {
                 variant="secondary"
                 size="sm"
                 className="focus:outline outline-2 outline-green-500"
+                onClick={handleUpdateEmail}
               >
                 Save
               </Button>
