@@ -25,12 +25,12 @@ const Signup = () => {
         return;
       }
       
-      const usersCrednetial = await createUserWithEmailAndPassword(
+      const usersCredential = await createUserWithEmailAndPassword(
         auth,
         data.email,
         data.password
       )
-      console.log(usersCrednetial);
+      console.log(usersCredential);
       console.log("successfully", data);
       navigate('/login');
       } catch (error) {

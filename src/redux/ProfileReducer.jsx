@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAuth, updateEmail, updateProfile } from "firebase/auth";
+import { getAuth, sendEmailVerification, updateEmail, updatePassword, updateProfile } from "firebase/auth";
 
 // Thunk to update the username
 export const updateUsername = createAsyncThunk(
@@ -21,6 +21,25 @@ export const updateUsername = createAsyncThunk(
   }
 );
 
+export const sendVerificationEmail = createAsyncThunk(
+  'profile/sendVerificationEmail',
+  async (_, { rejectWithValue }) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        await sendEmailVerification(user);
+        return { message : 'Verification email sent' };
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    } else {
+      return rejectWithValue('User not found');
+    }
+  }
+)
+
 // Thunk to change the email
 export const changeEmail = createAsyncThunk(
   "profile/changeEmail",
@@ -29,12 +48,17 @@ export const changeEmail = createAsyncThunk(
     const user = auth.currentUser;
 
     if (user) {
-      try {
+      if ( user.emailVerified) {
+
+        try {
         await updateEmail(user, email);
-        return email;
+        return { email };
       } catch (error) {
         return rejectWithValue(error.message);
       }
+    } else {
+      return rejectWithValue("Email not verified");
+    }
     } else {
       return rejectWithValue("User not found");
     }
@@ -63,6 +87,25 @@ export const fetchUserProfile = createAsyncThunk(
   }
 );
 
+export const changePassword = createAsyncThunk(
+  'profile/changePassword',
+  async (password, { rejectWithValue}) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        await updatePassword(user, password);
+        return { message: 'Password changed successfully' };
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    } else {
+      return rejectWithValue('');
+    }
+  }
+)
+
 const ProfileSlice = createSlice({
   name: "profile",
   initialState: {
@@ -70,6 +113,7 @@ const ProfileSlice = createSlice({
     email: "",
     loading: false,
     error: null,
+    message: null,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -107,7 +151,20 @@ const ProfileSlice = createSlice({
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(changePassword.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.message = null;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.loading = false;
+        state.message = action.payload.message;
+      })
+      .addCase(changePassword.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
   },
 });
 
