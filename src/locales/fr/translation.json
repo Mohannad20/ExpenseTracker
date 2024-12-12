@@ -1,0 +1,26 @@
+{
+  "languageSettings": "Paramètres de langue",
+  "selectLanguage": "Sélectionnez une langue",
+  "languages": {
+    "language": "Langue",
+    "en": "Anglais",
+    "es": "Espagnol",
+    "de": "Allemand",
+    "fr": "Français",
+    "ar": "Arabe"
+  },
+  "notifications": "Notifications",
+  "expenseAlerts": "Alertes de dépenses",
+  "budgetAlerts": "Alertes de budget",
+  "weeklyReport": "Rapport hebdomadaire",
+  "monthlyReport": "Rapport mensuel",
+  "billPayment": "Paiement de facture",
+  "themeMode": "Mode Thème",
+  "light": "Clair",
+  "dark": "Sombre",
+  "system": "Système",
+  "currency": "Devise",
+  "selectCurrency": "Sélectionnez une devise",
+  "currencySettings": "Paramètres de devise",
+  "editAppPreferences": "Modifier les préférences de l'application"
+}

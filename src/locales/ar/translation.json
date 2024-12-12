@@ -1,0 +1,26 @@
+{
+  "languageSettings": "إعدادات اللغة",
+  "selectLanguage": "اختر لغة",
+  "languages": {
+    "language": "لغة",
+    "en": "الإنجليزية",
+    "es": "الإسبانية",
+    "de": "الألمانية",
+    "fr": "الفرنسية",
+    "ar": "العربية"
+  },
+  "notifications": "الإشعارات",
+  "expenseAlerts": "تنبيهات المصاريف",
+  "budgetAlerts": "تنبيهات الميزانية",
+  "weeklyReport": "التقرير الأسبوعي",
+  "monthlyReport": "التقرير الشهري",
+  "billPayment": "دفع الفواتير",
+  "themeMode": "وضع السمة",
+  "light": "فاتح",
+  "dark": "داكن",
+  "system": "النظام",
+  "currency": "العملة",
+  "selectCurrency": "اختر عملة",
+  "currencySettings": "إعدادات العملة",
+  "editAppPreferences": "تعديل تفضيلات التطبيق"
+}

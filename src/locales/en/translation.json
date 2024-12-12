@@ -1,0 +1,26 @@
+{
+  "languageSettings": "Language Settings",
+  "selectLanguage": "Select a language",
+  "languages": {
+    "language": "Language",
+    "en": "English",
+    "es": "Spanish",
+    "de": "German",
+    "fr": "French",
+    "ar": "Arabic"
+  },
+  "notifications": "Notifications",
+  "expenseAlerts": "Expense Alerts",
+  "budgetAlerts": "Budget Alerts",
+  "weeklyReport": "Weekly Report",
+  "monthlyReport": "Monthly Report",
+  "billPayment": "Bill Payment",
+  "themeMode": "Theme Mode",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+  "currency": "Currency",
+  "selectCurrency": "Select a currency",
+  "currencySettings": "Currency Settings",
+  "editAppPreferences": "Edit App Preferences"
+}

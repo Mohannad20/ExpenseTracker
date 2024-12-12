@@ -1,0 +1,26 @@
+{
+  "languageSettings": "Spracheinstellungen",
+  "selectLanguage": "Wählen Sie eine Sprache",
+  "languages": {
+    "language": "Sprache",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "de": "Deutsch",
+    "fr": "Französisch",
+    "ar": "Arabisch"
+  },
+  "notifications": "Benachrichtigungen",
+  "expenseAlerts": "Ausgabenwarnungen",
+  "budgetAlerts": "Budgetwarnungen",
+  "weeklyReport": "Wochenbericht",
+  "monthlyReport": "Monatsbericht",
+  "billPayment": "Rechnungszahlung",
+  "themeMode": "Themenmodus",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "system": "System",
+  "currency": "Währung",
+  "selectCurrency": "Wählen Sie eine Währung",
+  "currencySettings": "Währungseinstellungen",
+  "editAppPreferences": "App-Einstellungen bearbeiten"
+}
