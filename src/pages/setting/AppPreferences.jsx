@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../../components/ui/button";
+import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -38,7 +39,7 @@ const AppPreferences = () => {
   }, []);
 
   const { theme , setTheme } = useTheme();
-  console.log(theme);
+  // console.log(theme);
 
   const [notification, setNotification] = useState({
     expenseAlerts : false,
@@ -48,25 +49,28 @@ const AppPreferences = () => {
     billPayment : false,
   })
 
+  const {t, i18n } = useTranslation();
+  
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  }
   
   return (
     <div className="h-min-screen">
-      <h1 className="text-base font-bold my-5">Edit App Preferences</h1>
+      <h1 className="text-base font-bold my-5">{t('editAppPreferences')}</h1>
       <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
         <div className=" lg:border-r-2">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm mb-2">Currency Settings</span>
+            <span className="text-sm mb-2">{t('currencySettings')}</span>
             <div>
               <Select>
                 <SelectTrigger className="w-[300px]">
-                  <SelectValue placeholder="select a currency" />
+                  <SelectValue placeholder={t('selectCurrency')} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Currency</SelectLabel>
-                    {/* <SelectItem value='USD'>USD</SelectItem>
-                    <SelectItem value='EUR'>EUR</SelectItem>
-                    <SelectItem value='GBP'>GBP</SelectItem> */}
+                    <SelectLabel>{t('currency')}</SelectLabel>
+                   
                     {currencies.map((currency) => (
                       <SelectItem key={currency} value={currency}>
                         {currency}
@@ -78,7 +82,7 @@ const AppPreferences = () => {
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm mb-2">Theme Mode</span>
+            <span className="text-sm mb-2">{t('themeMode')}</span>
             <div>
               <Select onValueChange={(value) => setTheme(value)} value={theme}>
                 <SelectTrigger className='w-[300px]'>
@@ -86,29 +90,29 @@ const AppPreferences = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Theme Mode</SelectLabel>
-                    <SelectItem value='light'>Light</SelectItem>
-                    <SelectItem value='dark'>Dark</SelectItem>
-                    <SelectItem value='system'>System</SelectItem>
+                    <SelectLabel>{t('themeMode')}</SelectLabel>
+                    <SelectItem value='light'>{t('light')}</SelectItem>
+                    <SelectItem value='dark'>{t('dark')}</SelectItem>
+                    <SelectItem value='system'>{t('system')}</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
             </div>
           </div>
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm mb-2">Language Settings</span>
-            <Select>
+            <span className="text-sm mb-2">{t('languageSettings')} </span>
+            <Select onValueChange={changeLanguage}>
               <SelectTrigger className="w-[300px]">
-                <SelectValue placeholder="select a language" />
+                <SelectValue placeholder={t('selectLanguage')} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Language</SelectLabel>
-                  <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="es">Spanish</SelectItem>
-                  <SelectItem value="fr">French</SelectItem>
-                  <SelectItem value="ar">Arabic</SelectItem>
-                  <SelectItem value="de">German</SelectItem>
+                  <SelectLabel>{t('language.language')}</SelectLabel>
+                  <SelectItem value="en">{t('languages.en')}</SelectItem>
+                  <SelectItem value="es">{t('languages.es')}</SelectItem>
+                  <SelectItem value="de">{t('languages.de')}</SelectItem>
+                  <SelectItem value="fr">{t('languages.fr')}</SelectItem>
+                  <SelectItem value="ar">{t('languages.ar')}</SelectItem>
 
                 </SelectGroup>
               </SelectContent>
@@ -117,30 +121,30 @@ const AppPreferences = () => {
         </div>
         <div className="">
           <div className="flex flex-col ml-4 my-2">
-            <span className="text-sm mb-2">Notifications</span>
+            <span className="text-sm mb-2">{t('notifications')}</span>
             <div className="flex flex-col gap-4">
              
               <div className="flex items-center gap-2">
-                <label htmlFor="expenseAlerts">Expense Alerts</label>
+                <label htmlFor="expenseAlerts">{t('expenseAlerts')}</label>
                 <input type="checkbox" className="toggle border-green-500 checked:bg-green-500 " />
                 
               </div>
               <div className="flex items-center gap-2">
-                <label htmlFor="budgetAlerts">Budget Alerts</label>
+                <label htmlFor="budgetAlerts">{t('budgetAlerts')}</label>
                 <input type="checkbox" className="toggle border-green-500 checked:bg-green-500" />
                 
               </div>
               <div className="flex items-center gap-2">
-                <label htmlFor="weeklyReport">Weekly Report</label>
+                <label htmlFor="weeklyReport">{t('weeklyReport')}</label>
                 <input type="checkbox" className="toggle border-green-500 checked:bg-green-500" />
                 
               </div>
               <div className="flex items-center gap-2">
-                <label htmlFor="monthlyReport">Monthly Report</label>
+                <label htmlFor="monthlyReport">{t('monthlyReport')}</label>
                 <input type="checkbox" className="toggle border-green-500 checked:bg-green-500" />
               </div>
               <div className="flex items-center gap-2">
-                <label htmlFor="billPayment">Bill Payment</label>
+                <label htmlFor="billPayment">{t('billPayment')}</label>
                 <input type="checkbox" className="toggle border-green-500 checked:bg-green-500" />
               </div>
             </div>

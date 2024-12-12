@@ -4,12 +4,20 @@ import { Button } from '../../components/ui/button'
 
 const BudgetAndExpenseSettings = () => {
   const [newCategory, setNewCategory] = useState('')
+  const [categories, setCategories] = useState([])
   const [budgetLimit, setBudgetLimit] = useState('')
   const [recurring, setRecurring] = useState({
     name: '',
     amount: '',
     frequency: 'monthly'
   })
+
+  const handleAddCategory = () => {
+    if ( newCategory.trim()) {
+      setCategories([...categories, newCategory])
+      setNewCategory('')
+    }
+  }
   
 
   return (
@@ -33,7 +41,9 @@ const BudgetAndExpenseSettings = () => {
                     <SelectItem value='travel'>Travel</SelectItem>
                     <SelectItem value='utilities'>Utilities</SelectItem>
                     <SelectItem value='entertainment'>Entertainment</SelectItem>
-                    {/* <SelectItem value=''>{newCategory}</SelectItem> */}
+                    {categories.map((category,i) => (
+                      <SelectItem value={category} key={i}>{category}</SelectItem>
+                    ))}
 
                   </SelectGroup>
                 </SelectContent>
@@ -51,6 +61,7 @@ const BudgetAndExpenseSettings = () => {
                 variant="secondary"
                 size="sm"
                 className="focus:outline outline-2 outline-green-500 max-sm:mt-2"
+                onClick={handleAddCategory}
               >
                 Add Category
               </Button>

@@ -56,12 +56,12 @@ const LegalAndInformation = () => {
         <div className="ml-7 space-y-4">
           <div className="text-sm space-y-2">
             <p><span className="font-medium">Version:</span> 1.0.0</p>
-            <p><span className="font-medium">Developer:</span> Your Name</p>
+            <p><span className="font-medium">Developer:</span> Mohannad Moujib</p>
             <p><span className="font-medium">Contact:</span> support@expensetracker.com</p>
-            <p><span className="font-medium">Website:</span> www.expensetracker.com</p>
+            <p><span className="font-medium">Website:</span> https://mohannad20.github.io/ExpenseTracker/</p>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
-            © 2024 Expense Tracker. All rights reserved.
+            © {new Date().getFullYear()}  Expense Tracker. All rights reserved.
           </p>
         </div>
       </div>

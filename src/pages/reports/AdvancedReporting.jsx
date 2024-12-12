@@ -8,9 +8,18 @@ import {
 } from 'react-feather';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Button } from '../../components/ui/button';
+import jsPDF from 'jspdf';
+import { useSelector } from 'react-redux';
+import html2canvas from 'html2canvas';
+import autoTable from 'jspdf-autotable';
+import { toPng } from 'html-to-image';
 
 const AdvancedReporting = () => {
   const [dateRange, setDateRange] = useState('monthly');
+  const userData = useSelector((state) => state.profile);
+  console.log(userData);
+  
+
   
   const sampleData = [
     { month: 'Jan', income: 4000, expenses: 2400, profit: 1600 },
@@ -19,6 +28,54 @@ const AdvancedReporting = () => {
     { month: 'Apr', income: 2780, expenses: 3908, profit: -1128 },
     { month: 'May', income: 1890, expenses: 4800, profit: -2910 },
   ];
+
+  const exportToPDF = async () => {
+    const doc = new jsPDF();
+  
+    doc.setFont("helvetica");
+    doc.setFontSize(20);
+  
+    doc.text("Advanced Reporting Data", 105, 10, null, null, "center");
+    doc.setFontSize(12);
+    doc.text("Name: " + userData.username, 10, 20);
+    doc.text("Email: " + userData.email, 10, 25);
+  
+    const headers = [["Month", "Income", "Expenses", "Profit"]];
+    const data = sampleData.map(item => [item.month, item.income, item.expenses, item.profit]);
+  
+    doc.autoTable({
+      head: headers,
+      body: data,
+      startY: 30,
+      theme: 'grid',
+    });
+  
+    // Capture charts as images
+    const lineChartElement = document.getElementById('line-chart');
+    const barChartElement = document.getElementById('bar-chart');
+  
+    try {
+      const lineChartElement = document.getElementById('line-chart');
+      const barChartElement = document.getElementById('bar-chart');
+  
+      if (lineChartElement && barChartElement) {
+        const lineChartImage = await toPng(lineChartElement);
+        const barChartImage = await toPng(barChartElement);
+  
+        doc.addPage();
+        doc.text("Revenue vs Expenses", 105, 10, null, null, "center");
+        doc.addImage(lineChartImage, 'PNG', 10, 20, 190, 100);
+  
+        doc.addPage();
+        doc.text("Profit Analysis", 105, 10, null, null, "center");
+        doc.addImage(barChartImage, 'PNG', 10, 20, 190, 100);
+      }
+    } catch (error) {
+      console.error("Error capturing charts:", error);
+    }
+  
+    doc.save("advanced-reporting-data.pdf");
+  }
 
   return (
     <div className="p-6">
@@ -37,7 +94,7 @@ const AdvancedReporting = () => {
               <SelectItem value='yearly'>Yearly</SelectItem>
             </SelectContent>
           </Select>
-          <Button className=" bg-primary text-background " size='lg'>
+          <Button className=" bg-primary text-background " size='lg' onClick={exportToPDF}>
             <Download size={18} />
             Export Report
           </Button>
@@ -57,7 +114,7 @@ const AdvancedReporting = () => {
 
       {/* Main Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="p-6 bg-accent rounded-lg shadow-sm">
+        <div className="p-6 bg-accent rounded-lg shadow-sm" id='line-chart'>
           <h2 className="text-xl font-semibold mb-4">Revenue vs Expenses</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={sampleData}>
@@ -72,7 +129,7 @@ const AdvancedReporting = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="p-6 bg-accent rounded-lg shadow-sm">
+        <div className="p-6 bg-accent rounded-lg shadow-sm" id='bar-chart'>
           <h2 className="text-xl font-semibold mb-4">Profit Analysis</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={sampleData}>
